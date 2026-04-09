@@ -58,7 +58,7 @@ http://localhost:3000
 
 ##  Live Demo
 
-👉 https://chat-ui-mauve-zeta.vercel.app/
+ https://chat-ui-mauve-zeta.vercel.app/
 
 ---
 
