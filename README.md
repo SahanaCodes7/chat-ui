@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Chatbot UI (Next.js)
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+This project is a responsive AI chatbot interface built using **Next.js (App Router)** and **TypeScript**. It allows users to send messages and receive simulated AI responses through a mock backend API.
+
+The goal of this project is to demonstrate **frontend-backend integration, clean UI/UX design, and scalable component architecture**, similar to modern AI applications like ChatGPT.
+
+---
+
+## Features
+
+### Core Features
+
+* Chat interface with user (right) and bot (left) messages
+* Timestamp displayed for each message
+* Mock API with delayed response (simulates AI thinking)
+* Loading / typing indicator
+* Auto-scroll to latest message
+* Responsive design (mobile + desktop)
+
+---
+
+### Bonus Features
+
+*  Dark Mode toggle (Lucide-based UI)
+*  Clear Chat functionality
+*  Message fade-in animation
+*  Copy message feature
+
+---
+
+##  Tech Stack
+
+* **Frontend:** Next.js (App Router), TypeScript
+* **Styling:** Tailwind CSS
+* **Icons:** Lucide React
+* **Backend:** Next.js API Routes
+
+---
+
+## ▶ How to Run Locally
 
 ```bash
+git clone https://github.com/YOUR_USERNAME/chat-ui.git
+cd chat-ui
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+##  Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+👉 https://YOUR-VERCEL-LINK.vercel.app
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  Challenges & Solutions
 
-## Deploy on Vercel
+### 1. Hydration Mismatch Error
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **Problem:** Using `Date()` directly caused server-client mismatch
+* **Solution:** Moved dynamic timestamp generation into `useEffect` (client-side only)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 2. UI Responsiveness Issues
+
+* **Problem:** Layout broke on smaller screens
+* **Solution:** Used Tailwind responsive utilities (`sm:`, flexible widths)
+
+---
+
+### 3. Component Scalability
+
+* **Problem:** ChatWindow became crowded with logic and UI
+* **Solution:** Refactored into reusable components:
+
+  * `Message.tsx`
+  * `InputArea.tsx`
+
+---
+
+### 4. UI/UX Improvements
+
+* Improved spacing, alignment, and readability
+* Added animations and interactive features
+* Implemented clean and minimal design inspired by modern AI apps
+
+---
+
+##  Key Learnings
+
+* Building scalable React component architecture
+* Managing state and async API calls
+* Handling real-world UI issues (hydration, responsiveness)
+* Designing user-friendly and modern interfaces
+
+---
+
+##  Conclusion
+
+This project demonstrates the ability to build a **clean, responsive, and feature-rich chatbot UI**, following modern development practices and focusing on both functionality and user experience.
+
+---
+
+ *Designed and developed as part of an internship assignment at Metawurks to showcase full-stack and UI/UX skills.*
