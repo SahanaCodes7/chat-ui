@@ -1,5 +1,12 @@
 "use client";
 
+type MessageType = {
+    id: number;
+    content: string;
+    role: "user" | "assistant";
+    timestamp: string;
+};
+
 import { Sun, Moon } from "lucide-react";
 import { Trash2 } from "lucide-react";
 import Message from "./Message";
@@ -7,7 +14,7 @@ import { useState, useEffect, useRef } from "react";
 import InputArea from "./InputArea";
 
 export default function ChatWindow() {
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState<MessageType[]>([]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
@@ -16,7 +23,7 @@ export default function ChatWindow() {
 
     //initial message (CLIENT SIDE ONLY)
     useEffect(() => {
-        const initialMessage = {
+        const initialMessage: MessageType = {
             id: 1,
             content: "Hi! I'm your AI assistant.",
             role: "assistant",
@@ -38,7 +45,7 @@ export default function ChatWindow() {
     const handleSend = async () => {
         if (!input.trim()) return;
 
-        const userMessage = {
+        const userMessage: MessageType = {
             id: Date.now(),
             content: input,
             role: "user",
@@ -63,7 +70,7 @@ export default function ChatWindow() {
 
             const data = await res.json();
 
-            const botMessage = {
+            const botMessage: MessageType = {
                 id: Date.now() + 1,
                 content: data.reply,
                 role: "assistant",
@@ -72,12 +79,11 @@ export default function ChatWindow() {
                     minute: "2-digit",
                 }),
             };
-
             setMessages((prev) => [...prev, botMessage]);
         } catch (error) {
             console.error(error);
 
-            const errorMessage = {
+            const errorMessage: MessageType = {
                 id: Date.now() + 2,
                 content: "Something went wrong. Please try again.",
                 role: "assistant",
@@ -94,7 +100,7 @@ export default function ChatWindow() {
     };
 
     const handleClearChat = () => {
-        const initialMessage = {
+        const initialMessage: MessageType = {
             id: 1,
             content: "Hi! I'm your AI assistant.",
             role: "assistant",
