@@ -42,7 +42,7 @@ The goal of this project is to demonstrate **frontend-backend integration, clean
 ## ▶ How to Run Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/chat-ui.git
+git clone https://github.com/SahanaCodes7/chat-ui
 cd chat-ui
 npm install
 npm run dev
@@ -58,7 +58,7 @@ http://localhost:3000
 
 ##  Live Demo
 
-👉 https://YOUR-VERCEL-LINK.vercel.app
+👉 https://chat-ui-mauve-zeta.vercel.app/
 
 ---
 
